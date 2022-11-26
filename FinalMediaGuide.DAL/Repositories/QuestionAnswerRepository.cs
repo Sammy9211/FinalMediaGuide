@@ -22,7 +22,7 @@ namespace FinalMediaGuide.DAL.Repositories
             _context.QuestionAnswers.Add(model);
         }
 
-        public List<QuestionAnswer> GetAllQuestionAnswers()
+        public List<QuestionAnswer> GetQuestionAnswers()
         {
             var data = _context.QuestionAnswers.Select(qa => new QuestionAnswer { 
                 Id = qa.Id,

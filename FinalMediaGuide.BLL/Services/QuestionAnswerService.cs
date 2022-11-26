@@ -48,7 +48,7 @@ namespace FinalMediaGuide.BLL.Services
 
         public List<QuestionAnswerVM> GetQuestionAnswers()
         {
-            var questionAnswers = _questionAnswerRepository.GetAllQuestionAnswers().Select(n => new QuestionAnswerVM
+            var questionAnswers = _questionAnswerRepository.GetQuestionAnswers().Select(n => new QuestionAnswerVM
             {
                 Id= n.Id,
                 IsCorrect= n.IsCorrect,

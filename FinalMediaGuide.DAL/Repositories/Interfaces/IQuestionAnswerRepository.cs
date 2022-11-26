@@ -13,6 +13,6 @@ namespace FinalMediaGuide.DAL.Repositories.Interfaces
         QuestionAnswer GetForEdit(int id);
         void Update(QuestionAnswer model);
         QuestionAnswer GetQuestionAnswerById(int id);
-        List<QuestionAnswer> GetAllQuestionAnswers();
+        List<QuestionAnswer> GetQuestionAnswers();
     }
 }
