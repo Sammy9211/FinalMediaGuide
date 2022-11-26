@@ -17,4 +17,4 @@ namespace FinalMediaGuide.DAL.Repositories.Interfaces
         List<Question> GetAllQuestions();
     }
 }
-}
+
