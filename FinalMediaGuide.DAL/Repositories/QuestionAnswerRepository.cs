@@ -35,25 +35,16 @@ namespace FinalMediaGuide.DAL.Repositories
 
         public QuestionAnswer GetForEdit(int id)
         {
-            var data = _context.QuestionAnswers.Where(qa => qa.Id == id).Select(s => new QuestionAnswer
-            {
-                Id = s.Id,
-                IsCorrect = s.IsCorrect,
-                QuestionId = s.QuestionId,
-                Text = s.Text
-            }).FirstOrDefault();
+            var data = _context.QuestionAnswers.Where(qa => qa.Id == id)
+             
+            .FirstOrDefault();
             return data;
         }
 
         public QuestionAnswer GetQuestionAnswerById(int id)
         {
-            var entity = _context.QuestionAnswers.Where(s => s.Id == id).Select(s => new QuestionAnswer
-            {
-                Id = s.Id,
-                IsCorrect = s.IsCorrect,
-                QuestionId = s.QuestionId,
-                Text = s.Text
-            }).AsNoTracking()
+            var entity = _context.QuestionAnswers.Where(s => s.Id == id)
+            .AsNoTracking()
             .FirstOrDefault();
             return entity;
         }

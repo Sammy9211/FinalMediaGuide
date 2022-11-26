@@ -35,14 +35,8 @@ namespace FinalMediaGuide.DAL.Repositories
 
         public News GetNewsById(int id)
         {
-            var entity = _context.News.Where(s => s.Id == id).Select(s => new News
-            {
-                Id = s.Id,
-                Description = s.Description,
-                Title = s.Title,
-                NewsType = s.NewsType,
-                ImageFile = s.ImageFile
-            }).AsNoTracking()
+            var entity = _context.News.Where(s => s.Id == id)
+            .AsNoTracking()
             .FirstOrDefault();
             return entity;
         }
@@ -57,15 +51,8 @@ namespace FinalMediaGuide.DAL.Repositories
         }
         public News GetForEdit(int id)
         {
-            var data = _context.News.Where(s => s.Id == id).Select(s => new News
-            {
-                Id = s.Id,
-                Description = s.Description,
-                Title = s.Title,
-                ImageFile = s.ImageFile,
-                NewsType = s.NewsType,
-
-            }).FirstOrDefault();
+            var data = _context.News.Where(s => s.Id == id)          
+            .FirstOrDefault();
             return data;
         }
     }

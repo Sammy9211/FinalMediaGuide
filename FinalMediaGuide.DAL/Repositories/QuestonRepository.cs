@@ -33,21 +33,13 @@ namespace FinalMediaGuide.DAL.Repositories
 
         public Question GetForEdit(int id)
         {
-            var data = _context.Questions.Where(qt => qt.Id == id).Select(qt => new Question
-            {
-                Id = qt.Id,
-                Text=qt.Text
-            }).FirstOrDefault();
+            var data = _context.Questions.Where(qt => qt.Id == id).FirstOrDefault();
             return data;
         }
 
         public Question GetQuestionById(int id)
         {
-            var entity = _context.Questions.Where(qt => qt.Id == id).Select(qt => new Question
-            {
-                Id = qt.Id,
-                Text=qt.Text
-            }).AsNoTracking().FirstOrDefault();
+            var entity = _context.Questions.Where(qt => qt.Id == id).AsNoTracking().FirstOrDefault();
             return entity;
         }
 

@@ -34,22 +34,13 @@ namespace FinalMediaGuide.DAL.Repositories
 
         public QuizType GetById(int id)
         {
-            var entity = _context.QuizTypes.Where(qt => qt.Id == id).Select(qt => new QuizType
-            {
-                Id= qt.Id,
-                Description = qt.Description,
-                Title = qt.Title,
-            }).AsNoTracking().FirstOrDefault();
+            var entity = _context.QuizTypes.Where(qt => qt.Id == id).AsNoTracking().FirstOrDefault();
             return entity;
         }
 
         public QuizType GetForEdit(int id)
         {
-            var data = _context.QuizTypes.Where(qt => qt.Id == id).Select(qt => new QuizType { 
-                Id = qt.Id,
-                Description = qt.Description,
-                Title = qt.Title,
-            }).FirstOrDefault();
+            var data = _context.QuizTypes.Where(qt => qt.Id == id).FirstOrDefault();
             return data;
         }
 
