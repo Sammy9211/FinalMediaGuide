@@ -65,5 +65,16 @@ namespace FinalMediaGuide.BLL.Services
             _questionRepository.Update(question);
             _unitOfWork.Save();
         }
+
+        public QuestionAddEditVM GetQuestionForEdit(int id)
+        {
+            var question = _questionRepository.GetForEdit(id);
+            QuestionAddEditVM model = new QuestionAddEditVM { 
+                Id= id,
+                QuizTypeId= question.QuizTypeId,
+                Text =question.Text,
+            };
+            return model;
+        }
     }
 }

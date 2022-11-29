@@ -11,6 +11,7 @@ namespace FinalMediaGuide.BLL.Services.Interfaces
     {
         public List<QuestionVM> GetAllQuestion();
         public QuestionVM GetQuestionById(int id);
+        public QuestionAddEditVM GetQuestionForEdit(int id);
         public void Add(QuestionAddEditVM model);
         public void Update(QuestionAddEditVM model);
     }

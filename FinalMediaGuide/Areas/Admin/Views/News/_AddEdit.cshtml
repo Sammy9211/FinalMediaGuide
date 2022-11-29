@@ -1,0 +1,42 @@
+﻿@using FinalMediaGuide.BLL.ViewModels;
+@model NewsVM
+@{
+    var actionText = Model.Id == 0 ? "Add" : "Edit";
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">@actionText</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form method="post" asp-action="AddEdit" asp-controller="News">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input type="text" class="form-control" placeholder="Enter title" asp-for="Title">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <input type="text" class="form-control" placeholder="Enter Description" asp-for="Description">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="ImageFile" class="form-label">ImageFile</label>
+                    <input type="text" class="form-control" placeholder="Enter Image" asp-for="ImageFile">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="NewsType" class="form-label">News Type</label>
+                    <select class="form-control" asp-items="Html.GetEnumSelectList<NewsType>()" asp-for="NewsType">
+                        <option>Select News Type</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
