@@ -34,6 +34,19 @@ namespace FinalMediaGuide.BLL.Services
             _uow.Save();
         }
 
+        public QuestionAnswerAddEditVM GetForEdit(int id)
+        {
+            var question = _questionAnswerRepository.GetForEdit(id);
+            QuestionAnswerAddEditVM model = new QuestionAnswerAddEditVM()
+            {
+                Id = id,
+                IsCorrect = question.IsCorrect,
+                QuestionId= question.QuestionId,
+                Text = question.Text
+            };
+            return model;
+        }
+
         public QuestionAnswerVM GetQuestionAnswer(int id)
         {
             var questionAnswer = _questionAnswerRepository.GetQuestionAnswerById(id);
