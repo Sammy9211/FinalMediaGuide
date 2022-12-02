@@ -22,10 +22,12 @@ namespace FinalMediaGuide
             builder.Services.AddScoped<IQuestionAnswerRepository,QuestionAnswerRepository>();
             builder.Services.AddScoped<IQuestionRepository,QuestonRepository>();
             builder.Services.AddScoped<IQuizTypeRepository,QuizTypeRepository>();
+            builder.Services.AddScoped<ICommentRepository,CommentRepository>();
             builder.Services.AddScoped<INewsService,NewsService>();
             builder.Services.AddScoped<IQuestionAnswerService,QuestionAnswerService>();
             builder.Services.AddScoped<IQuestionService, QuestionService>();
             builder.Services.AddScoped<IQuizTypeService,QuizTypeService>();
+            builder.Services.AddScoped<ICommentService, CommentService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

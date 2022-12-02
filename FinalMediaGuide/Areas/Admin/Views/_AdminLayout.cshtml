@@ -52,7 +52,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="index.html" class="app-brand-link">
+                    <a asp-action="Index" asp-controller="Home" asp-area="UserSide" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <svg width="25"
                                  viewBox="0 0 25 42"
@@ -118,9 +118,9 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Pages</span>
                     </li>
-                    
+
                     <!-- Components -->
-                    
+
 
                     <li class="menu-item">
                         <a asp-action="Index" asp-controller="News" class="menu-link">
@@ -151,6 +151,12 @@
                         <a asp-action="Index" asp-controller="QuestionAnswer" class="menu-link">
                             <i class='menu-icon bx bxs-message-alt-check'></i>
                             <div data-i18n="Questions Answers">Question Answers</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a asp-action="Index" asp-controller="Comment" class="menu-link">
+                            <i class='menu-icon bx bxs-comment-detail'></i>
+                            <div data-i18n="Comments">Comments</div>
                         </a>
                     </li>
                     <!-- Misc -->
@@ -296,8 +302,8 @@
                         <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                             <div class="mb-2 mb-md-0">
                                 ©
-                              @*  <script>
-                                    document.write(new Date().getFullYear());
+                                @*  <script>
+                                document.write(new Date().getFullYear());
                                 </script>*@
                                 , made with ❤️ by
                                 <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>

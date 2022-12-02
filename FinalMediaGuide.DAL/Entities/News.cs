@@ -14,7 +14,6 @@ namespace FinalMediaGuide.DAL.Entities
         public string Description { get; set; }
         public  string ImageFile { get; set; }
         public NewsType NewsType { get; set; }
-
-
+        public ICollection<Comment> Comments { get; set; }
     }
 }
