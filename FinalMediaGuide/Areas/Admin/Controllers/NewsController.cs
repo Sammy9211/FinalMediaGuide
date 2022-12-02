@@ -8,9 +8,11 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
     public class NewsController : Controller
     {
         private readonly INewsService _newsService;
-        public NewsController(INewsService newsService)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public NewsController(INewsService newsService, IWebHostEnvironment webHostEnvironment)
         {
             _newsService = newsService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -19,19 +21,27 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
             return View(data);
         }
         [HttpGet]
-        public IActionResult AddEdit(int? newsId) {
-            NewsVM model = newsId.HasValue ? _newsService.GetNewsById(newsId.Value) : new NewsVM() { Id = 0};
-            return PartialView("_AddEdit",model);
+        public IActionResult AddEdit(int? newsId)
+        {
+            NewsVM model = newsId.HasValue ? _newsService.GetNewsById(newsId.Value) : new NewsVM() { Id = 0 };
+            return PartialView("_AddEdit", model);
         }
         [HttpPost]
-        public IActionResult AddEdit(NewsVM model)
+        public async Task<IActionResult> AddEdit(NewsVM model, IFormFile fileName)
         {
-            if (model.Id == 0)
+            if (fileName != null)
             {
-                _newsService.Add(model);
-            }
-            else { 
-                _newsService.Update(model);
+                string path = "/Files/" + fileName.FileName;
+                using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create)) { await fileName.CopyToAsync(fileStream); }
+                model.ImageFile = path;
+                if (model.Id == 0)
+                {
+                    _newsService.Add(model);
+                }
+                else
+                {
+                    _newsService.Update(model);
+                }
             }
             return RedirectToAction("Index");
         }

@@ -26,4 +26,9 @@
     <ProjectReference Include="..\FinalMediaGuide.DAL\FinalMediaGuide.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Files\" />
+    <Folder Include="wwwroot\UserSide\assets\Fonts\" />
+  </ItemGroup>
+
 </Project>

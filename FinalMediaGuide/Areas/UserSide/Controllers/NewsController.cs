@@ -17,5 +17,9 @@ namespace FinalMediaGuide.Areas.UserSide.Controllers
             var data = _newsService.GetAllNews();
             return View(data);
         }
+        public IActionResult NewsSingle(int id) {
+            var entity = _newsService.GetNewsById(id);
+            return View(entity);
+        }
     }
 }
