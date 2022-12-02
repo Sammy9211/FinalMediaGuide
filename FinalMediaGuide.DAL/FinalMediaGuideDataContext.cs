@@ -20,5 +20,6 @@ namespace FinalMediaGuide.DAL
         public DbSet<Question> Questions { get; set; }
         public DbSet<QuestionAnswer> QuestionAnswers { get; set; }
         public DbSet<QuizType> QuizTypes { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }

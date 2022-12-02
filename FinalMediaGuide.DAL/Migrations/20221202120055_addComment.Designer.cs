@@ -4,6 +4,7 @@ using FinalMediaGuide.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalMediaGuide.DAL.Migrations
 {
     [DbContext(typeof(FinalMediaGuideDataContext))]
-    partial class FinalMediaGuideDataContextModelSnapshot : ModelSnapshot
+    [Migration("20221202120055_addComment")]
+    partial class addComment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,12 +45,7 @@ namespace FinalMediaGuide.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NewsId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("NewsId");
 
                     b.ToTable("Comments");
                 });
@@ -364,17 +362,6 @@ namespace FinalMediaGuide.DAL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("FinalMediaGuide.DAL.Entities.Comment", b =>
-                {
-                    b.HasOne("FinalMediaGuide.DAL.Entities.News", "News")
-                        .WithMany("Comments")
-                        .HasForeignKey("NewsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("News");
-                });
-
             modelBuilder.Entity("FinalMediaGuide.DAL.Entities.Question", b =>
                 {
                     b.HasOne("FinalMediaGuide.DAL.Entities.QuizType", "QuizType")
@@ -446,11 +433,6 @@ namespace FinalMediaGuide.DAL.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FinalMediaGuide.DAL.Entities.News", b =>
-                {
-                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("FinalMediaGuide.DAL.Entities.Question", b =>
