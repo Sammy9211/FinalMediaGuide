@@ -9,5 +9,9 @@ namespace FinalMediaGuide.Areas.UserSide.Controllers
         {
             return View();
         }
+        public IActionResult Book()
+        {
+            return PartialView();
+        }
     }
 }

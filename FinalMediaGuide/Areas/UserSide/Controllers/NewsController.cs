@@ -1,4 +1,5 @@
 ﻿using FinalMediaGuide.BLL.Services.Interfaces;
+using FinalMediaGuide.BLL.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalMediaGuide.Areas.UserSide.Controllers
@@ -7,9 +8,11 @@ namespace FinalMediaGuide.Areas.UserSide.Controllers
     public class NewsController : Controller
     {
         private readonly INewsService _newsService;
-        public NewsController(INewsService newsService)
+        private readonly ICommentService _commentService;
+        public NewsController(INewsService newsService,ICommentService commentService)
         {
             _newsService = newsService;
+            _commentService = commentService;
         }
 
         public IActionResult Index()
@@ -19,7 +22,16 @@ namespace FinalMediaGuide.Areas.UserSide.Controllers
         }
         public IActionResult NewsSingle(int id) {
             var entity = _newsService.GetNewsById(id);
+            ViewBag.Comments = _commentService.GetCommentsByNewsId(id);
             return View(entity);
+        }
+        public IActionResult AddComment(int newsId) {
+            return PartialView("_AddComment");
+        }
+        [HttpPost]
+        public IActionResult AddComment(CommentAddEditVM model) {
+            _commentService.Add(model);
+            return RedirectToAction("Index");
         }
     }
 }
