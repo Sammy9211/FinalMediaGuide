@@ -10,6 +10,7 @@ namespace FinalMediaGuide.BLL.Services.Interfaces
     public interface ICommentService
     {
         public List<CommentVM> GetComments();
+        public List<CommentVM> GetCommentsByNewsId(int id);
         public CommentVM GetComment(int id);
         public CommentAddEditVM GetCommentForEdit(int id);
         public void Add(CommentAddEditVM model);

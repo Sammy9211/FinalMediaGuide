@@ -17,127 +17,130 @@
     <link href="~/UserSide/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="~/UserSide/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="~/UserSide/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="~/UserSide/assets/img/logo.png" />
 
     <!-- Template Main CSS File -->
     <link href="~/UserSide/assets/css/style.css" rel="stylesheet">
 </head>
 <body style="margin:0;">
     @*<img src="~/UserSide/assets/img/5092-shark.gif" id="loader"/> *@
-        <header id="header" class="header fixed-top">
-            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <header id="header" class="header fixed-top">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-                <a href="index.html" class="logo d-flex align-items-center">
-                    <img src="~/UserSide/assets/img/logo.png" alt="">
-                    <span>FlexStart</span>
-                </a>
+            <a href="index.html" class="logo d-flex align-items-center">
+                <img src="~/UserSide/assets/img/logo.png" alt="">
+                <span>CSharks</span>
+            </a>
 
-                <nav id="navbar" class="navbar">
-                    <ul>
-                        <li><a class="nav-link scrollto" asp-action="Index" asp-controller="Home">Home</a></li>
-                        <li><a class="nav-link scrollto" href="#about">About</a></li>
-                        <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                        <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-                        <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                        <li><a class="nav-link scrollto" asp-action="Index" asp-controller="News">News</a></li>
-                        <li class="dropdown">
-                            <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                            <ul>
-                                <li><a href="#">Drop Down 1</a></li>
-                                <li class="dropdown">
-                                    <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                                    <ul>
-                                        <li><a href="#">Deep Drop Down 1</a></li>
-                                        <li><a href="#">Deep Drop Down 2</a></li>
-                                        <li><a href="#">Deep Drop Down 3</a></li>
-                                        <li><a href="#">Deep Drop Down 4</a></li>
-                                        <li><a href="#">Deep Drop Down 5</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Drop Down 2</a></li>
-                                <li><a href="#">Drop Down 3</a></li>
-                                <li><a href="#">Drop Down 4</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                        <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
-                    </ul>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-                </nav><!-- .navbar -->
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto" asp-action="Index" asp-controller="Home">Հիմնական</a></li>
+                    <li><a class="nav-link scrollto" href="#about">Մեր Մասին</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Ծառայություններ</a></li>
+                    <li><a class="nav-link scrollto" href="#team">Մեր Թիմը</a></li>
+                    <li><a class="nav-link scrollto" asp-action="Index" asp-controller="News">Նորություններ</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Կապ</a></li>
+                    <li><a class="getstarted scrollto" href="#about" data-bs-toggle="modal" data-bs-target="#exampleModal">Սկսել</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
 
-            </div>
-        </header>
-        @RenderBody()
-        <footer id="footer" class="footer">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row gy-4">
-                        <div class="col-lg-5 col-md-12 footer-info">
-                            <a href="index.html" class="logo d-flex align-items-center">
-                                <img src="assets/img/logo.png" alt="">
-                                <span>FlexStart</span>
-                            </a>
-                            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                            </div>
+        </div>
+    </header>
+    @RenderBody()
+    <footer id="footer" class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-5 col-md-12 footer-info">
+                        <a href="index.html" class="logo d-flex align-items-center">
+                            <img src="assets/img/logo.png" alt="">
+                            <span>Mediaguide</span>
+                        </a>
+                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
                         </div>
+                    </div>
 
-                        <div class="col-lg-2 col-6 footer-links">
-                            <h4>Useful Links</h4>
-                            <ul>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                            </ul>
-                        </div>
+                    <div class="col-lg-2 col-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Հիմնական</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Մեր Մասին</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Ծառայություններ</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Մեր թիմը</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Նորություններ</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Կապ</a></li>
+                        </ul>
+                    </div>
 
-                        <div class="col-lg-2 col-6 footer-links">
-                            <h4>Our Services</h4>
-                            <ul>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                            <h4>Contact Us</h4>
-                            <p>
-                                A108 Adam Street <br>
-                                New York, NY 535022<br>
-                                United States <br><br>
-                                <strong>Phone:</strong> +1 5589 55488 55<br>
-                                <strong>Email:</strong> info@example.com<br>
-                            </p>
-
-                        </div>
+                    <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                        <h4>Կապ մեզ հետ</h4>
+                        <p>
+                            Շինարարների 12<br>
+                            Քաղաք Վանաձոր,Լոռու մարզ<br>
+                            Հայաստանի Հանրապետություն <br><br>
+                            <strong>Հեռախոսահամար:</strong> +37499977501<br>
+                            <strong>Էլեկտրոնային հասցե:</strong> info@mediaguide.com<br>
+                        </p>
 
                     </div>
+
                 </div>
             </div>
+        </div>
 
-            <div class="container">
-                <div class="copyright">
-                    &copy; Copyright <strong><span>FlexStart</span></strong>. All Rights Reserved
-                </div>
-                <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Mediaguide</span></strong>. All Rights Reserved
             </div>
-        </footer><!-- End Footer -->
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
+                Developed by CSharks
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <style>
+        .nav-link {
+            background-image: linear-gradient( to right, #4154f1, #4154f1 50%, #000 25% );
+            background-size: 200% 100%;
+            background-position: -100%;
+            display: inline-bl ock;
+            padding: 5px 0;
+            position: relative;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease-in-out;
+        }
 
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+            .nav-link:before {
+                content: '';
+                background: #4154f1;
+                display: block;
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .nav-link:hover {
+                background-position: 0;
+            }
+
+                .nav-link:hover::before {
+                    width: 100%;
+                }
+    </style>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <!-- Vendor JS Files -->
     <script src="~/UserSide/assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="~/UserSide/assets/vendor/aos/aos.js"></script>
@@ -150,16 +153,16 @@
     <!-- Template Main JS File -->
     <script src="~/UserSide/assets/js/main.js"></script>
     @*<script>
-        var myVar;
+    var myVar;
 
-        function myFunction() {
-            myVar = setTimeout(showPage, 5000);
-        }
+    function myFunction() {
+    myVar = setTimeout(showPage, 5000);
+    }
 
-        function showPage() {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("myDiv").style.display = "block";
-        }
+    function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("myDiv").style.display = "block";
+    }
     </script>*@
 </body>
 </html>

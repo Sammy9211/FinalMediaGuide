@@ -29,6 +29,8 @@
   <ItemGroup>
     <Folder Include="wwwroot\Files\" />
     <Folder Include="wwwroot\UserSide\assets\Fonts\" />
+    <Folder Include="wwwroot\UserSide\flipbook\" />
+    <Folder Include="wwwroot\UserSide\cadres\" />
   </ItemGroup>
 
 </Project>

@@ -84,6 +84,19 @@ namespace FinalMediaGuide.BLL.Services
             return comments;
         }
 
+        public List<CommentVM> GetCommentsByNewsId(int id)
+        {
+            var comments = _commentRepository.GetComments().Where(c => c.NewsId == id).Select(c => new CommentVM()
+            { 
+                Id = c.Id,
+                CommentText = c.CommentText,
+                DateOfComment = c.DateOfComment,
+                Email = c.Email,
+                Name = c.Name
+            }).ToList();
+            return comments;
+        }
+
         public void Update(CommentAddEditVM model)
         {
             var comment = new Comment()
