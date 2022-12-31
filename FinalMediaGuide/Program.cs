@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using FinalMediaGuide.BLL.Services.Interfaces;
 using FinalMediaGuide.BLL.Services;
 using Microsoft.EntityFrameworkCore;
+using FinalMediaGuide.DAL.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace FinalMediaGuide
 {
@@ -28,6 +30,7 @@ namespace FinalMediaGuide
             builder.Services.AddScoped<IQuestionService, QuestionService>();
             builder.Services.AddScoped<IQuizTypeService,QuizTypeService>();
             builder.Services.AddScoped<ICommentService, CommentService>();
+            builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<FinalMediaGuideDataContext>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

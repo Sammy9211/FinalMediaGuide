@@ -8,9 +8,6 @@ namespace FinalMediaGuide.DAL.Entities
 {
     public class User:IdentityUser<int>
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string MiddleName { get; set; }
-        public DateTime DOB { get; set; }
+        public int Year { get; set; }
     }
 }
