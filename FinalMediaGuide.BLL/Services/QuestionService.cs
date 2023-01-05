@@ -14,11 +14,13 @@ namespace FinalMediaGuide.BLL.Services
     public class QuestionService : IQuestionService
     {
         private readonly IQuestionRepository _questionRepository;
+        private readonly ITranslatorService _translatorService;
         private readonly IUnitOfWork _unitOfWork;
-        public QuestionService(IQuestionRepository questionRepository, IUnitOfWork unitOfWork)
+        public QuestionService(IQuestionRepository questionRepository, IUnitOfWork unitOfWork, ITranslatorService translatorService)
         {
             _questionRepository = questionRepository;
             _unitOfWork = unitOfWork;
+            _translatorService = translatorService;
         }
     
         public void Add(QuestionAddEditVM model)
@@ -54,16 +56,29 @@ namespace FinalMediaGuide.BLL.Services
             return question;
         }
 
-        public void Update(QuestionAddEditVM model)
+        public void Update(QuestionAddEditVM model, CultureType cultureType = CultureType.en)
         {
-            var question = new Question
+            var entity = _questionRepository.GetQuestionById(model.Id);
+            if (cultureType == CultureType.en)
             {
-                Id = model.Id,
-                Text=model.Text,
-                QuizTypeId = model.QuizTypeId
-            };
-            _questionRepository.Update(question);
+                entity.Text = model.Text;
+                entity.QuizTypeId = model.QuizTypeId;
+                _questionRepository.Update(entity);
+            }
+            else 
+            {
+                var tablename = "Questions";
+                _translatorService.Fill(model,cultureType,tablename,model.Id);
+            }
             _unitOfWork.Save();
+            //var question = new Question
+            //{
+            //    Id = model.Id,
+            //    Text=model.Text,
+            //    QuizTypeId = model.QuizTypeId
+            //};
+            //_questionRepository.Update(question);
+            //_unitOfWork.Save();
         }
 
         public QuestionAddEditVM GetQuestionForEdit(int id)

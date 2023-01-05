@@ -1,12 +1,13 @@
 ﻿using FinalMediaGuide.BLL.Services;
 using FinalMediaGuide.BLL.Services.Interfaces;
 using FinalMediaGuide.BLL.ViewModels;
+using FinalMediaGuide.DAL.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalMediaGuide.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "moderator")]
     [Area("Admin")]
     public class QuestionAnswerController : Controller
     {
@@ -33,7 +34,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
             }
             else
             {
-                _questionAnswerService.Update(model);
+                _questionAnswerService.Update(model, CultureType.en);
             }
             return RedirectToAction("Index");
         }

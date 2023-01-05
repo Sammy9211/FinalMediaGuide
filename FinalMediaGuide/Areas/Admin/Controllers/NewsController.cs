@@ -1,11 +1,12 @@
 ﻿using FinalMediaGuide.BLL.Services.Interfaces;
 using FinalMediaGuide.BLL.ViewModels;
+using FinalMediaGuide.DAL.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalMediaGuide.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "moderator")]
     [Area("Admin")]
     public class NewsController : Controller
     {
@@ -42,7 +43,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
                 }
                 else
                 {
-                    _newsService.Update(model);
+                    _newsService.Update(model,CultureType.am);
                 }
             }
             return RedirectToAction("Index");

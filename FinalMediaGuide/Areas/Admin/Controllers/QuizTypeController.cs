@@ -1,11 +1,12 @@
 ﻿using FinalMediaGuide.BLL.Services.Interfaces;
 using FinalMediaGuide.BLL.ViewModels;
+using FinalMediaGuide.DAL.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalMediaGuide.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "moderator")]
     [Area("Admin")]
     public class QuizTypeController : Controller
     {
@@ -32,7 +33,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
                 _quizTypeService.Add(model);
             }
             else {
-                _quizTypeService.Update(model);
+                _quizTypeService.Update(model,CultureType.en);
             }
             return RedirectToAction("Index");
         }

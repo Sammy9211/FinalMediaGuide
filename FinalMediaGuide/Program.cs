@@ -30,6 +30,8 @@ namespace FinalMediaGuide
             builder.Services.AddScoped<IQuestionService, QuestionService>();
             builder.Services.AddScoped<IQuizTypeService,QuizTypeService>();
             builder.Services.AddScoped<ICommentService, CommentService>();
+            builder.Services.AddScoped<ITranslateRepository, TranslateRepository>();
+            builder.Services.AddScoped<ITranslatorService, TranslatorService>();
             builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<FinalMediaGuideDataContext>();
             var app = builder.Build();
 

@@ -13,11 +13,13 @@ namespace FinalMediaGuide.BLL.Services
     public class QuizTypeService : IQuizTypeService
     {
         private readonly IQuizTypeRepository _quizTypeRepository;
+        private readonly ITranslatorService _translatorService;
         private readonly IUnitOfWork _uow;
-        public QuizTypeService(IQuizTypeRepository quizTypeRepository, IUnitOfWork uow)
+        public QuizTypeService(IQuizTypeRepository quizTypeRepository, IUnitOfWork uow, ITranslatorService translatorService)
         {
             _quizTypeRepository = quizTypeRepository;
             _uow = uow;
+            _translatorService = translatorService;
         }
 
         public void Add(QuizTypeVM model)
@@ -54,16 +56,28 @@ namespace FinalMediaGuide.BLL.Services
             return quiz;
         }
 
-        public void Update(QuizTypeVM model)
+        public void Update(QuizTypeVM model,CultureType cultureType = CultureType.en)
         {
-            var quiz = new QuizType
+            var entity = _quizTypeRepository.GetById(model.Id);
+            if (cultureType == CultureType.am)
             {
-                Id = model.Id,
-                Description = model.Description,
-                Title = model.Title,
-            };
-            _quizTypeRepository.Update(quiz);
+                entity.Description = model.Description;
+                entity.Title = model.Title;
+            }
+            else
+            {
+                var tablename = "QuizTypes";
+                _translatorService.Fill(model,cultureType,tablename,model.Id);
+            }
             _uow.Save();
+            //var quiz = new QuizType
+            //{
+            //    Id = model.Id,
+            //    Description = model.Description,
+            //    Title = model.Title,
+            //};
+            //_quizTypeRepository.Update(quiz);
+            //_uow.Save();
         }
     }
 }

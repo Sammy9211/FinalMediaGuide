@@ -1,5 +1,6 @@
 ﻿using FinalMediaGuide.BLL.ViewModels;
 using FinalMediaGuide.DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -72,12 +73,13 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
             return View(model);
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index","Home");
+            return Redirect("https://localhost:44349/");
         }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalMediaGuide.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "moderator")]
     [Area("Admin")]
     public class CommentController : Controller
     {
