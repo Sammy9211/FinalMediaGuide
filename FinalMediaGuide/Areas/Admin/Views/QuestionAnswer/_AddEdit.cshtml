@@ -9,6 +9,8 @@
     </div>
     <form method="post" asp-action="AddEdit" asp-controller="QuestionAnswer">
         <div class="modal-body">
+            <input asp-for="Id" hidden/>
+            <input asp-for="Culture" hidden/>
             <div class="row">
                 <div class="col mb-3">
                     <label asp-for="Text" class="form-label">Text</label>

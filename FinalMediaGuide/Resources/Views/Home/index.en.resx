@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Artyush" xml:space="preserve">
+    <value>Artyush Varderesyan</value>
+  </data>
+  <data name="Davit" xml:space="preserve">
+    <value>Davit Karapetyan</value>
+  </data>
+  <data name="Eran" xml:space="preserve">
+    <value>Yeranuhi Ter-Movsisyan</value>
+  </data>
+  <data name="Header1" xml:space="preserve">
+    <value>Target group</value>
+  </data>
+  <data name="Header2" xml:space="preserve">
+    <value>A vision of the future</value>
+  </data>
+  <data name="Header3" xml:space="preserve">
+    <value>Access to our website</value>
+  </data>
+  <data name="Julia" xml:space="preserve">
+    <value>Julieta Simonyan</value>
+  </data>
+  <data name="MainText" xml:space="preserve">
+    <value>We offer new solutions to old problems</value>
+  </data>
+  <data name="Samvel" xml:space="preserve">
+    <value>Samvel Hovsepyan</value>
+  </data>
+  <data name="SmallText1" xml:space="preserve">
+    <value>Our project is designed to introduce media literacy skills to children aged 10-16 and protect them from cybercrimes.</value>
+  </data>
+  <data name="SmallText2" xml:space="preserve">
+    <value>It is planned to bring our website from the virtual field to reality, through comics, board games, toys, stickers.</value>
+  </data>
+  <data name="SmallText3" xml:space="preserve">
+    <value>Promotion of the site through advertisements on social networks</value>
+  </data>
+  <data name="smt1" xml:space="preserve">
+    <value>Comic book design</value>
+  </data>
+  <data name="smt2" xml:space="preserve">
+    <value>An imaginary story</value>
+  </data>
+  <data name="smt3" xml:space="preserve">
+    <value>Logical development of characters</value>
+  </data>
+  <data name="smt4" xml:space="preserve">
+    <value>Presentation of exciting games</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Let's start</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>Support hours</value>
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value>Hard workers</value>
+  </data>
+  <data name="Text1" xml:space="preserve">
+    <value>The important role of schools</value>
+  </data>
+  <data name="Text2" xml:space="preserve">
+    <value>Proponents of media literacy instruction argue that incorporating media literacy into school curricula promotes civic engagement, raises awareness of the power structures inherent in popular media, and helps students acquire critical and investigative skills. More and more work is devoted to the impact of media literacy on youth. An analysis of more than 50 studies published in the Journal of Communication showed that media literacy has a positive effect on knowledge, critical thinking, perception of reality, behavior and beliefs.</value>
+  </data>
+  <data name="Text3" xml:space="preserve">
+    <value>OUR PROJECT</value>
+  </data>
+  <data name="Text4" xml:space="preserve">
+    <value>Some facts about our project</value>
+  </data>
+  <data name="Text5" xml:space="preserve">
+    <value>FEATURES</value>
+  </data>
+  <data name="Text6" xml:space="preserve">
+    <value>Features of our project</value>
+  </data>
+  <data name="Text7" xml:space="preserve">
+    <value>THE TEAM</value>
+  </data>
+  <data name="Text8" xml:space="preserve">
+    <value>Our hardworking team</value>
+  </data>
+  <data name="TextBtn" xml:space="preserve">
+    <value>Read more</value>
+  </data>
+</root>

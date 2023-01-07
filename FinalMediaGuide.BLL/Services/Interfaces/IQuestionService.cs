@@ -1,4 +1,5 @@
 ﻿using FinalMediaGuide.BLL.ViewModels;
+using FinalMediaGuide.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace FinalMediaGuide.BLL.Services.Interfaces
         public QuestionVM GetQuestionById(int id);
         public QuestionAddEditVM GetQuestionForEdit(int id);
         public void Add(QuestionAddEditVM model);
-        public void Update(QuestionAddEditVM model);
+        public void Update(QuestionAddEditVM model, CultureType cultureType);
     }
 }

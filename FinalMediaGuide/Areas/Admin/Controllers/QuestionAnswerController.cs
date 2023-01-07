@@ -1,10 +1,13 @@
 ﻿using FinalMediaGuide.BLL.Services;
 using FinalMediaGuide.BLL.Services.Interfaces;
 using FinalMediaGuide.BLL.ViewModels;
+using FinalMediaGuide.DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalMediaGuide.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "moderator")]
     [Area("Admin")]
     public class QuestionAnswerController : Controller
     {
@@ -19,8 +22,9 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
             return View(data);
         }
         [HttpGet]
-        public IActionResult AddEdit(int? id, int? questionId) {
+        public IActionResult AddEdit(int? id, int? questionId,CultureType culture) {
             QuestionAnswerAddEditVM model = id.HasValue ? _questionAnswerService.GetForEdit(id.Value) : new QuestionAnswerAddEditVM() { Id = 0,QuestionId = questionId.Value};
+            model.Culture = culture;
             return PartialView("_AddEdit",model);
         }
         [HttpPost]
@@ -31,7 +35,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
             }
             else
             {
-                _questionAnswerService.Update(model);
+                _questionAnswerService.Update(model,model.Culture);
             }
             return RedirectToAction("Index");
         }

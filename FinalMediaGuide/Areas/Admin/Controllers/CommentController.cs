@@ -1,9 +1,13 @@
-﻿using FinalMediaGuide.BLL.Services.Interfaces;
+﻿using FinalMediaGuide.Controllers;
+using FinalMediaGuide.BLL.Services.Interfaces;
 using FinalMediaGuide.BLL.ViewModels;
+using FinalMediaGuide.DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalMediaGuide.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "moderator")]
     [Area("Admin")]
     public class CommentController : Controller
     {
@@ -22,7 +26,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddEdit(int? id) {
             CommentAddEditVM model = id.HasValue ? _commentService.GetCommentForEdit(id.Value) : new CommentAddEditVM() { Id = 0};
-            ViewBag.News = _newsService.GetAllNews(); 
+            ViewBag.News = _newsService.GetAllNews(CultureType.en); 
             return PartialView("_AddEdit",model);
         }
         [HttpPost]

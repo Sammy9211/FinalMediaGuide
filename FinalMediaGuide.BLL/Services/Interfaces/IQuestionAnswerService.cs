@@ -14,6 +14,6 @@ namespace FinalMediaGuide.BLL.Services.Interfaces
         public QuestionAnswerVM GetQuestionAnswer(int id);
         public QuestionAnswerAddEditVM GetForEdit(int id);
         public void Add(QuestionAnswerAddEditVM model);
-        public void Update(QuestionAnswerAddEditVM model);
+        public void Update(QuestionAnswerAddEditVM model, CultureType cultureType);
     }
 }

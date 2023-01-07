@@ -14,11 +14,13 @@ namespace FinalMediaGuide.BLL.Services
     public class QuestionAnswerService : IQuestionAnswerService
     {
         private readonly IQuestionAnswerRepository _questionAnswerRepository;
+        private readonly ITranslatorService _translatorService;
         private readonly IUnitOfWork _uow;
-        public QuestionAnswerService(IQuestionAnswerRepository questionAnswerRepository, IUnitOfWork uow)
+        public QuestionAnswerService(IQuestionAnswerRepository questionAnswerRepository, IUnitOfWork uow,ITranslatorService translatorService)
         {
             _questionAnswerRepository = questionAnswerRepository;
             _uow = uow;
+            _translatorService = translatorService;
         }
 
         public void Add(QuestionAnswerAddEditVM model)
@@ -70,17 +72,31 @@ namespace FinalMediaGuide.BLL.Services
             return questionAnswers;
         }
 
-        public void Update(QuestionAnswerAddEditVM model)
+        public void Update(QuestionAnswerAddEditVM model,CultureType cultureType)
         {
-            var questionAnswer = new QuestionAnswer
+            var entity = _questionAnswerRepository.GetForEdit(model.Id);
+            if (cultureType == CultureType.en)
             {
-                Id = model.Id,
-                Text = model.Text,
-                IsCorrect= model.IsCorrect,
-                QuestionId= model.QuestionId,
-            };
-            _questionAnswerRepository.Update(questionAnswer);
+                entity.Text = model.Text;
+                entity.IsCorrect = model.IsCorrect;
+                entity.QuestionId = model.QuestionId;
+                _questionAnswerRepository.Update(entity);
+            }
+            else 
+            {
+                var tablename = "QuestionAnswers";
+                _translatorService.Fill(model, cultureType,tablename,model.Id);
+            }
             _uow.Save();
+            //var questionAnswer = new QuestionAnswer
+            //{
+            //    Id = model.Id,
+            //    Text = model.Text,
+            //    IsCorrect= model.IsCorrect,
+            //    QuestionId= model.QuestionId,
+            //};
+            //_questionAnswerRepository.Update(questionAnswer);
+            //_uow.Save();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using FinalMediaGuide.DAL.Enums;
+﻿using FinalMediaGuide.DAL.Entities;
+using FinalMediaGuide.DAL.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace FinalMediaGuide.BLL.ViewModels
         public string Description { get; set; }
         public string ImageFile { get; set; }
         public NewsType NewsType { get; set; }
+        public CultureType Culture { get; set; }
     }
 }

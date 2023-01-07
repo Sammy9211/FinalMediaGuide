@@ -52,7 +52,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a asp-action="Index" asp-controller="Home" asp-area="UserSide" class="app-brand-link">
+                    <a asp-action="Index" asp-controller="Home" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <svg width="25"
                                  viewBox="0 0 25 42"
@@ -142,9 +142,15 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a asp-action="Index" asp-controller="#" class="menu-link">
+                        <a asp-action="Index" asp-controller="Users" class="menu-link">
                             <i class='menu-icon bx bxs-user-detail'></i>
                             <div data-i18n="Users">Users</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a asp-action="Index" asp-controller="Roles" class="menu-link">
+                            <i class='menu-icon bx bxs-user-check'></i>
+                            <div data-i18n="Roles">Roles</div>
                         </a>
                     </li>
                     <li class="menu-item">
@@ -267,10 +273,12 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="auth-login-basic.html">
-                                            <i class="bx bx-power-off me-2"></i>
-                                            <span class="align-middle">Log Out</span>
-                                        </a>
+                                        <form method="post" asp-controller="Account" asp-action="Logout">
+                                            <button type="submit"class="dropdown-item">
+                                                <i class="bx bx-power-off me-2"></i>
+                                                <span class="align-middle">Log Out</span>
+                                            </button>
+                                        </form>
                                     </li>
                                 </ul>
                             </li>
