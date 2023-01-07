@@ -11,6 +11,7 @@ namespace FinalMediaGuide.DAL.Entities
     {
         [Display(Name = "ՀԱՅ")]
         am = 1,
+        [Display(Name = "RU")]
         ru,
         [Display(Name = "EN")]
         en = 3

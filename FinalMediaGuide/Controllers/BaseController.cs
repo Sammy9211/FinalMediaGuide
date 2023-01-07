@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FinalMediaGuide.Areas.UserSide.Controllers
+namespace FinalMediaGuide.Controllers
 {
     public class BaseController : Controller
     {

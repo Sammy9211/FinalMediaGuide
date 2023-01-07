@@ -2,9 +2,8 @@
 using FinalMediaGuide.DAL.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FinalMediaGuide.Areas.UserSide.Controllers
+namespace FinalMediaGuide.Controllers
 {
-    [Area("UserSide")]
     public class QuestionAnswerController : Controller
     {
         private readonly IQuestionAnswerRepository _questionAnswerRepository;
@@ -12,10 +11,10 @@ namespace FinalMediaGuide.Areas.UserSide.Controllers
         {
             _questionAnswerRepository = questionAnswerRepository;
         }
-    
+
         public IActionResult Index()
         {
-            var data=_questionAnswerRepository.GetQuestionAnswers();
+            var data = _questionAnswerRepository.GetQuestionAnswers();
             return View(data);
         }
     }

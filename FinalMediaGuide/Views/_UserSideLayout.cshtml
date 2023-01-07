@@ -42,7 +42,7 @@
                     <li><a class="nav-link scrollto" href="#team">@Localizer["nav4"]</a></li>
                     <li><a class="nav-link scrollto" asp-action="Index" asp-controller="News">@Localizer["nav5"]</a></li>
                     <li><a class="nav-link scrollto" href="#contact">@Localizer["nav6"]</a></li>
-                    <li><a class="nav-link">@await Html.PartialAsync("~/Areas/UserSide/Views/_SelectLanguagePartial.cshtml")</a></li>
+                    @await Html.PartialAsync("~/Views/_SelectLanguagePartial.cshtml")
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <li><a class="nav-link scrollto" asp-action="Login" asp-controller="Account" asp-area="Admin">@Localizer["nav7"]</a></li>
@@ -62,12 +62,12 @@
                                     </li>
                                 }
                                 <form method="post" asp-controller="Account" asp-action="Logout" asp-area="Admin">
-                                    <li>
-                                        <button type="submit" class="dropdown-item">
-                                            <i class="bx bx-power-off me-2"></i>
-                                            <span class="mx-3">Log Out</span>
-                                        </button>
-                                    </li>
+                                <li>
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="mx-3">Log Out</span>
+                                    </button>
+                                </li>
                                 </form>
                             </ul>
                         </li>

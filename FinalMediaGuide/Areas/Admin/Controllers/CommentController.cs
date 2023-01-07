@@ -1,4 +1,4 @@
-﻿using FinalMediaGuide.Areas.UserSide.Controllers;
+﻿using FinalMediaGuide.Controllers;
 using FinalMediaGuide.BLL.Services.Interfaces;
 using FinalMediaGuide.BLL.ViewModels;
 using FinalMediaGuide.DAL.Entities;
