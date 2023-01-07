@@ -33,21 +33,32 @@ namespace FinalMediaGuide.BLL.Services
             _uow.Save();
         }
 
-        public List<NewsVM> GetAllNews()
+        public List<NewsVM> GetAllNews(CultureType cultureType)
         {
-            var news = _newsRepository.GetAllNews().Select(n => new NewsVM { 
-                Id= n.Id,
+            var news = _newsRepository.GetAllNews();
+            if (cultureType != CultureType.en)
+            {
+                news = _translatorService.Convert(news, "News", 0, cultureType, news.Select(n => n.Id).ToList()) as List<News>;
+
+            }
+            var list = news.Select(n => new NewsVM 
+            {
                 Description= n.Description,
                 ImageFile= n.ImageFile,
                 NewsType= n.NewsType,
-                Title= n.Title,
+                Id = n.Id,
+                Title = n.Title,
             }).ToList();
-            return news;
+            return list;
         }
 
-        public NewsVM GetNewsById(int id)
+        public NewsVM GetNewsById(int id,CultureType cultureType)
         {
             var news = _newsRepository.GetNewsById(id);
+            if (cultureType != CultureType.en)
+            {
+                news = _translatorService.Convert(news, "News", id, cultureType, new List<int> { id}) as News;
+            }
             NewsVM newsVM = new NewsVM { 
                 Id= id,
                 Description= news.Description,
@@ -58,9 +69,9 @@ namespace FinalMediaGuide.BLL.Services
             return newsVM;
         }
 
-        public void Update(NewsVM newsVM, CultureType cultureType = CultureType.am)
+        public void Update(NewsVM newsVM, CultureType cultureType)
         {
-            var entity = _newsRepository.GetNewsById(newsVM.Id);
+            var entity = _newsRepository.GetForEdit(newsVM.Id);
             if (cultureType == CultureType.en)
             {
                 entity.Title = newsVM.Title;

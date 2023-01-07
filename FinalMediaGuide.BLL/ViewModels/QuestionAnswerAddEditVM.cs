@@ -14,5 +14,6 @@ namespace FinalMediaGuide.BLL.ViewModels
         public string Text { get; set; }
         public bool IsCorrect { get; set; }
         public int QuestionId { get; set; }
+        public CultureType Culture { get; set; }
     }
 }

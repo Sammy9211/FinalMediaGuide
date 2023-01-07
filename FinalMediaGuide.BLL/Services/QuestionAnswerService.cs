@@ -72,9 +72,9 @@ namespace FinalMediaGuide.BLL.Services
             return questionAnswers;
         }
 
-        public void Update(QuestionAnswerAddEditVM model,CultureType cultureType = CultureType.en)
+        public void Update(QuestionAnswerAddEditVM model,CultureType cultureType)
         {
-            var entity = _questionAnswerRepository.GetQuestionAnswerById(model.Id);
+            var entity = _questionAnswerRepository.GetForEdit(model.Id);
             if (cultureType == CultureType.en)
             {
                 entity.Text = model.Text;

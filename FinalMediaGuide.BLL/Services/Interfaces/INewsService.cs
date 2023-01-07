@@ -10,8 +10,8 @@ namespace FinalMediaGuide.BLL.Services.Interfaces
 {
     public interface INewsService
     {
-        public List<NewsVM> GetAllNews();
-        public NewsVM GetNewsById(int id);
+        public List<NewsVM> GetAllNews(CultureType cultureType);
+        public NewsVM GetNewsById(int id,CultureType cultureType);
         public void Add(NewsVM newsVM);
         public void Update(NewsVM newsVM,CultureType cultureType);
     }

@@ -13,5 +13,6 @@ namespace FinalMediaGuide.BLL.ViewModels
         public int Id { get; set; }
         public string Text { get; set; }
         public int QuizTypeId { get; set; }
+        public CultureType Culture { get; set; }
     }
 }

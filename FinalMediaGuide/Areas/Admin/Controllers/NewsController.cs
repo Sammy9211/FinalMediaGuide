@@ -20,13 +20,14 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var data = _newsService.GetAllNews();
+            var data = _newsService.GetAllNews(CultureType.en);
             return View(data);
         }
         [HttpGet]
-        public IActionResult AddEdit(int? newsId)
+        public IActionResult AddEdit(int? newsId,CultureType culture)
         {
-            NewsVM model = newsId.HasValue ? _newsService.GetNewsById(newsId.Value) : new NewsVM() { Id = 0 };
+            NewsVM model = newsId.HasValue ? _newsService.GetNewsById(newsId.Value,CultureType.en) : new NewsVM() { Id = 0 };
+            model.Culture = culture;
             return PartialView("_AddEdit", model);
         }
         [HttpPost]
@@ -43,7 +44,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
                 }
                 else
                 {
-                    _newsService.Update(model,CultureType.am);
+                    _newsService.Update(model,model.Culture);
                 }
             }
             return RedirectToAction("Index");

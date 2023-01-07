@@ -1,4 +1,5 @@
-﻿@model List<QuestionVM>
+﻿@using FinalMediaGuide.DAL.Entities;
+@model List<QuestionVM>
 @{
     Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
 }
@@ -25,7 +26,10 @@
                             <i class="bx bx-dots-vertical-rounded"></i>
                         </button>
                         <div class="dropdown-menu" style="">
-                            <a asp-action="AddEdit" asp-route-id="@item.Id" asp-controller="Question" class="modal-open dropdown-item"><i class="bx bx-edit-alt me-1"></i>Edit</a>
+                            <a asp-action="AddEdit" asp-route-id="@item.Id" asp-route-culture="@CultureType.en" asp-controller="Question" class="modal-open dropdown-item"><i class="bx bx-edit-alt me-1"></i>Edit</a>
+                            <a asp-action="AddEdit" asp-route-id="@item.Id" asp-route-culture="@CultureType.am" asp-controller="Question" class="modal-open dropdown-item"><i class="bx bx-edit-alt me-1"></i>Edit am</a>
+                            <a asp-action="AddEdit" asp-route-id="@item.Id" asp-route-culture="@CultureType.ru" asp-controller="Question" class="modal-open dropdown-item"><i class="bx bx-edit-alt me-1"></i>Edit ru</a>
+
                             <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
                             <a asp-action="AddEdit" asp-route-questionId="@item.Id" asp-controller="QuestionAnswer" class="modal-open dropdown-item"><i class="bx bx-edit-alt me-1"></i>Add Answer</a>
                         </div>

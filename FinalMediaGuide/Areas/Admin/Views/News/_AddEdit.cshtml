@@ -1,4 +1,5 @@
 ﻿@using FinalMediaGuide.BLL.ViewModels;
+@using FinalMediaGuide.DAL.Entities;
 @model NewsVM
 @{
     var actionText = Model.Id == 0 ? "Add" : "Edit";
@@ -9,6 +10,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <form method="post" asp-action="AddEdit" asp-controller="News" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id"/>
         <div class="modal-body">
             <div class="row">
                 <div class="col mb-3">
@@ -36,6 +38,7 @@
                     </select>
                 </div>
             </div>
+            <input asp-for="Culture" hidden/>
             <button type="submit" class="btn btn-primary">Save</button>
         </div>
     </form>

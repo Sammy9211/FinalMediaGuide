@@ -22,8 +22,9 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
             return View(data);
         }
         [HttpGet]
-        public IActionResult AddEdit(int? id, int? questionId) {
+        public IActionResult AddEdit(int? id, int? questionId,CultureType culture) {
             QuestionAnswerAddEditVM model = id.HasValue ? _questionAnswerService.GetForEdit(id.Value) : new QuestionAnswerAddEditVM() { Id = 0,QuestionId = questionId.Value};
+            model.Culture = culture;
             return PartialView("_AddEdit",model);
         }
         [HttpPost]
@@ -34,7 +35,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
             }
             else
             {
-                _questionAnswerService.Update(model, CultureType.en);
+                _questionAnswerService.Update(model,model.Culture);
             }
             return RedirectToAction("Index");
         }

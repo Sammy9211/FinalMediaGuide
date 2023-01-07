@@ -35,7 +35,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return Redirect("https://localhost:44349/UserSide/Home/Index");
                 }
                 else 
                 {
@@ -63,7 +63,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
 
                 if (result.Succeeded)
                 {
-                    return Redirect("https://localhost:44349/Admin/Home/Index");
+                    return Redirect("https://localhost:44349/UserSide/Home/Index");
                 }
                 else
                 {

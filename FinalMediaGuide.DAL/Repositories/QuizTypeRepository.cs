@@ -34,7 +34,7 @@ namespace FinalMediaGuide.DAL.Repositories
 
         public QuizType GetById(int id)
         {
-            var entity = _context.QuizTypes.Where(qt => qt.Id == id).AsNoTracking().FirstOrDefault();
+            var entity = _context.QuizTypes.Where(qt => qt.Id == id).FirstOrDefault();
             return entity;
         }
 

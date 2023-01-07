@@ -56,10 +56,10 @@ namespace FinalMediaGuide.BLL.Services
             return quiz;
         }
 
-        public void Update(QuizTypeVM model,CultureType cultureType = CultureType.en)
+        public void Update(QuizTypeVM model,CultureType cultureType)
         {
-            var entity = _quizTypeRepository.GetById(model.Id);
-            if (cultureType == CultureType.am)
+            var entity = _quizTypeRepository.GetForEdit(model.Id);
+            if (cultureType == CultureType.en)
             {
                 entity.Description = model.Description;
                 entity.Title = model.Title;

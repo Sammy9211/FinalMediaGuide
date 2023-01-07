@@ -1,5 +1,6 @@
 ﻿@model FinalMediaGuide.BLL.ViewModels.NewsVM
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "NewsSingle";
     Layout = "~/Areas/UserSide/Views/_UserSideLayout.cshtml";
@@ -93,7 +94,7 @@
 
                 <div class="sidebar">
 
-                    <h3 class="sidebar-title">Փնտրել</h3>
+                    <h3 class="sidebar-title">@Localizer["String1"]</h3>
                     <div class="sidebar-item search-form">
                         <form action="">
                             <input type="text">
@@ -101,18 +102,18 @@
                         </form>
                     </div><!-- End sidebar search formn-->
 
-                    <h3 class="sidebar-title">Տեսակներ</h3>
+                    <h3 class="sidebar-title">@Localizer["String2"]</h3>
                     <div class="sidebar-item categories">
                         <ul>
-                            <li><a href="#">Տեխնոլոգիաներ</a></li>
-                            <li><a href="#">Մեդիագրագիտություն</a></li>
-                            <li><a href="#">Համակարգչային գիտություն</a></li>
-                            <li><a href="#">Սոցիալական լրատվամիջոց</a></li>
-                            <li><a href="#">Անվտանգություն</a></li>
+                            <li><a href="#">@Localizer["String3"]</a></li>
+                            <li><a href="#">@Localizer["String4"]</a></li>
+                            <li><a href="#">@Localizer["String5"]</a></li>
+                            <li><a href="#">@Localizer["String6"]</a></li>
+                            <li><a href="#">@Localizer["String7"]</a></li>
                         </ul>
                     </div><!-- End sidebar categories-->
 
-                    <h3 class="sidebar-title">Այլ նորություններ</h3>
+                    <h3 class="sidebar-title">@Localizer["String8"]</h3>
                     <div class="sidebar-item recent-posts">
                         <div class="post-item clearfix">
                             <img src="~/UserSide/assets/img/blog/blog-recent-1.jpg" alt="">
@@ -145,23 +146,6 @@
                         </div>
 
                     </div><!-- End sidebar recent posts-->
-
-                    <h3 class="sidebar-title">Tags</h3>
-                    <div class="sidebar-item tags">
-                        <ul>
-                            <li><a href="#">App</a></li>
-                            <li><a href="#">IT</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Mac</a></li>
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Office</a></li>
-                            <li><a href="#">Creative</a></li>
-                            <li><a href="#">Studio</a></li>
-                            <li><a href="#">Smart</a></li>
-                            <li><a href="#">Tips</a></li>
-                            <li><a href="#">Marketing</a></li>
-                        </ul>
-                    </div><!-- End sidebar tags-->
 
                 </div><!-- End sidebar -->
 

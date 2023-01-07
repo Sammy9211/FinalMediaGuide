@@ -22,8 +22,9 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
             return View(data);
         }
         [HttpGet]
-        public IActionResult AddEdit(int? id) {
-            QuizTypeVM model = id.HasValue ? _quizTypeService.GetQuizTypeById(id.Value) : new QuizTypeVM() { Id = 0};
+        public IActionResult AddEdit(int? id,CultureType culture) {
+            QuizTypeVM model = id.HasValue ? _quizTypeService.GetQuizTypeById(id.Value) : new QuizTypeVM() { Id = 0 };
+            model.Culture = culture;
             return PartialView("_AddEdit",model);
         }
         [HttpPost]
@@ -33,7 +34,7 @@ namespace FinalMediaGuide.Areas.Admin.Controllers
                 _quizTypeService.Add(model);
             }
             else {
-                _quizTypeService.Update(model,CultureType.en);
+                _quizTypeService.Update(model, model.Culture);
             }
             return RedirectToAction("Index");
         }

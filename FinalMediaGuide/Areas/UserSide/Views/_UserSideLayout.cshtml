@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -27,22 +29,23 @@
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a asp-action="Index" asp-controller="Home" class="logo d-flex align-items-center">
                 <img src="~/UserSide/assets/img/logo.png" alt="">
                 <span>CSharks</span>
             </a>
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" asp-action="Index" asp-controller="Home">Հիմնական</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Մեր Մասին</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Ծառայություններ</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Մեր Թիմը</a></li>
-                    <li><a class="nav-link scrollto" asp-action="Index" asp-controller="News">Նորություններ</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Կապ</a></li>
+                    <li><a class="nav-link scrollto" asp-action="Index" asp-controller="Home">@Localizer["nav1"]</a></li>
+                    <li><a class="nav-link scrollto" href="#about">@Localizer["nav2"]</a></li>
+                    <li><a class="nav-link scrollto" href="#services">@Localizer["nav3"]</a></li>
+                    <li><a class="nav-link scrollto" href="#team">@Localizer["nav4"]</a></li>
+                    <li><a class="nav-link scrollto" asp-action="Index" asp-controller="News">@Localizer["nav5"]</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">@Localizer["nav6"]</a></li>
+                    <li><a class="nav-link">@await Html.PartialAsync("~/Areas/UserSide/Views/_SelectLanguagePartial.cshtml")</a></li>
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <li><a class="nav-link scrollto" asp-action="Login" asp-controller="Account" asp-area="Admin">Մուտք գործել</a></li>
+                        <li><a class="nav-link scrollto" asp-action="Login" asp-controller="Account" asp-area="Admin">@Localizer["nav7"]</a></li>
                     }
                     else
                     {
@@ -52,11 +55,12 @@
                                 <i class="bi bi-chevron-down"></i>
                             </a>
                             <ul>
-                                <li>
-                                    <a href="#">Drop Down 1</a>
-                                </li>
-                                <li><a href="#">Drop Down 2</a></li>
-                                <li><a href="#">Drop Down 3</a></li>
+                                @if (User.IsInRole("moderator") || User.IsInRole("admin"))
+                                {
+                                    <li>
+                                        <a asp-action="Index" asp-controller="Home" asp-area="Admin">Admin Page</a>
+                                    </li>
+                                }
                                 <form method="post" asp-controller="Account" asp-action="Logout" asp-area="Admin">
                                     <li>
                                         <button type="submit" class="dropdown-item">
@@ -68,7 +72,7 @@
                             </ul>
                         </li>
                     }
-                    <li><a class="getstarted scrollto" href="#about" data-bs-toggle="modal" data-bs-target="#exampleModal">Սկսել</a></li>
+                    <li><a class="getstarted scrollto" href="#about" data-bs-toggle="modal" data-bs-target="#exampleModal">@Localizer["navBtn"]</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -95,25 +99,25 @@
                     </div>
 
                     <div class="col-lg-2 col-6 footer-links">
-                        <h4>Useful Links</h4>
+                        <h4>@Localizer["usefull-Links"]</h4>
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Հիմնական</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Մեր Մասին</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Ծառայություններ</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Մեր թիմը</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Նորություններ</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Կապ</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">@Localizer["nav1"]</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">@Localizer["nav2"]</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">@Localizer["nav3"]</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">@Localizer["nav4"]</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">@Localizer["nav5"]</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">@Localizer["nav6"]</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                        <h4>Կապ մեզ հետ</h4>
+                        <h4>@Localizer["String1"]</h4>
                         <p>
-                            Շինարարների 12<br>
-                            Քաղաք Վանաձոր,Լոռու մարզ<br>
-                            Հայաստանի Հանրապետություն <br><br>
-                            <strong>Հեռախոսահամար:</strong> +37499977501<br>
-                            <strong>Էլեկտրոնային հասցե:</strong> info@mediaguide.com<br>
+                            @Localizer["String2"]<br>
+                            @Localizer["String3"]<br>
+                            @Localizer["String4"] <br><br>
+                            <strong>@Localizer["String5"]:</strong> +37499977501<br>
+                            <strong>@Localizer["String6"]:</strong> info@mediaguide.com<br>
                         </p>
 
                     </div>

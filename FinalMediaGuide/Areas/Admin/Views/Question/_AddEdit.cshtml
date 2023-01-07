@@ -1,4 +1,5 @@
-﻿@model QuestionAddEditVM
+﻿@using FinalMediaGuide.DAL.Entities;
+@model QuestionAddEditVM
 @{
     var actionText = Model.Id == 0 ? "Add" : "Edit";
 }
@@ -9,6 +10,7 @@
     </div>
     <form method="post" asp-action="AddEdit" asp-controller="Question">
         <div class="modal-body">
+            <input asp-for="Id" hidden/>
             <div class="row">
                 <div class="col mb-3">
                     <label asp-for="Text" class="form-label">Text</label>
@@ -27,6 +29,7 @@
                     </select>
                 </div>
             </div>
+            <input asp-for="Culture" hidden/>
             <button type="submit" class="btn btn-primary">Save</button>
         </div>
     </form>
